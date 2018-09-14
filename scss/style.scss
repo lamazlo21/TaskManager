@@ -1,0 +1,104 @@
+@import "mixins";
+@import "variables";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.toggle{
+    height: $sectionHeight;
+    display: flex;
+    flex-direction: row;
+    .toggle--done{
+        @include bookmark();
+        border-right: none;
+        border-bottom: 1px solid $borderColor;
+        border-left: 0.5px solid $borderColor;
+        opacity:0.5;
+    }
+    .toggle--undone {
+        @include bookmark();
+        border-right: 0.5px solid $borderColor;
+        border-left: none;
+    }
+}
+
+.done{
+    @include taskList();
+    display: none;
+}
+
+.undone {
+    @include taskList();
+}
+
+.new{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    @include center();
+    background-color: $backgroundColor;
+    height: 10vh;
+    border-top: 2px solid $borderColor;
+    box-sizing: border-box;
+    input{
+        border:none;
+        border-bottom:1px solid $borderColor;
+        background-color: $backgroundColor;
+        width: 200px;
+    }
+    button{
+        width: 30px;
+        height: 30px;
+        border-radius:50%;
+        border: none;
+    }
+}
+.tasks{
+    li{
+        @include task();
+    }
+}
+
+.toggle--done__clicked{
+    @include bookmark();
+    border-right: none;
+    border-left: 0.5px solid $borderColor;
+}
+
+.toggle--undone__unfocused {
+    @include bookmark();
+    opacity: 0.5;
+    border-left: none;
+    border-bottom: 1px solid $borderColor;
+    border-right: 0.5px solid $borderColor;
+}
+
+.preloader{
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundColor;
+    @include center();
+    flex-direction: column;
+    .logo {
+        height: 140px;
+        width: 100px;
+    }
+    .header {
+        font-size: 30px;
+        color: #fff;
+        text-align: center;
+    }
+    form{
+        display: none;
+    }
+
+}
+
