@@ -11,6 +11,9 @@
     <title>Task Manager</title>
 </head>
 <body>
+    <div class="fb-customerchat" attribution=setup_tool page_id="339826613426850" logged_in_greeting="Siemano kurka"
+        logged_out_greeting="Siemano kurka">
+    </div>
     <div class="preloader">
         <figure >
             <img class="logo" src="images/clipboard.svg" alt="clipboard">
@@ -61,5 +64,16 @@
         db.settings({timestampsInSnapshots:true});
     </script>
     <script src="scripts/scripts.js"></script>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <!-- Your customer chat code -->
 </body>
 </html>
